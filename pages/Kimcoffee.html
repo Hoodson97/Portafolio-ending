@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 4</title>
+    <link rel="stylesheet" href="./kimcoffee.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="carousel-container">
+            <button class="arrow arrow-left" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-images" id="carousel">
+                <img src="/img/fullcolor.kimcoffee.png" alt="Fullcolor">
+                <img src="/img/negativo.kimcoffee.png" alt="Negative">
+                <img src="/img/positivo.kimcoffee.png" alt="Positive">
+            </div>
+            <button class="arrow arrow-right" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="carousel-text">
+            "This logo was created for an artisanal coffee brand that preserves the essence of a good conversation and a delicious cup of coffee."
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function moveSlide(direction) {
+            const carousel = document.getElementById('carousel');
+            const totalSlides = carousel.children.length;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            const slideWidth = carousel.children[0].clientWidth;
+            carousel.style.transform = `translateX(${-slideWidth * currentSlide}px)`;
+        }
+    </script>
+
+</body>
+</html>

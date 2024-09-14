@@ -1,0 +1,93 @@
+.sidebar {
+    width: 60%; /* Cambiado a un valor fijo para un ancho consistente */
+    min-width: 250px;
+    max-width: 400px;
+    overflow-y: auto;
+    background-color: yellow; /* #59554e */
+    color: $fontleftcolor; /* white */
+    position: fixed;
+    top: 0;
+    left: -100%; /* Mueve el sidebar completamente fuera de la vista inicialmente */
+    transition: left 0.8s ease;
+    z-index: 1;
+    
+    &.active {
+        left: 0; /* Cuando esté activo, se muestra completamente */
+    }
+
+    .sidebar-header {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        padding: 10px 20px;
+    }
+
+    .sidebar-section {
+        margin: 15%;
+
+        .section-title {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: $titleleftcontent; /* #d4ff00 */
+        }
+
+        .ri-contacts-fill,
+        .ri-link {
+            margin: 8px;
+        }
+
+        .contact-info,
+        .social-links {
+            font-size: 16px;
+            list-style: none;
+        }
+    }
+
+    .sidebar-footer {
+        margin: 15%;
+    }
+
+    a {
+        color: $fontleftcolor; /* white */
+        text-decoration: none;
+    }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 401px) {
+        width: 200px; /* Ancho más pequeño para pantallas móviles */
+        min-width: 200px;
+        max-width: 250px;
+        left: -100%; /* Mueve el sidebar fuera de la vista completamente */
+
+        &.active {
+            left: 0; /* Sidebar visible al activarse */
+        }
+
+        .sidebar-section {
+            margin: 10%;
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .contact-info,
+            .social-links {
+                font-size: 15px;
+            }
+        }
+
+        .sidebar-footer {
+            margin: 10%;
+        }
+    }
+
+    /* Media query para pantallas medianas (tablets) */
+    @media (min-width: 401px) and (max-width: 768px) {
+        width: 50%; /* Sidebar ocupa el 50% del ancho de la pantalla en tablets */
+        left: -50%; /* Mueve el sidebar fuera de la vista pero en relación al 50% */
+
+        &.active {
+            left: 0; /* Sidebar visible al activarse */
+        }
+    }
+}
